@@ -1,4 +1,4 @@
-# Gerenciador de Chamados
+# Gerencia & Chama
 
 Projeto de estudo desenvolvido em Python para praticar fundamentos de programação e desenvolvimento de sistemas.
 
@@ -6,7 +6,7 @@ Projeto de estudo desenvolvido em Python para praticar fundamentos de programaç
 
 - Login
 - Validação de usuário e senha
-- Classificação de urgência dos chamados
+- Menus separados por tipo de usuário (Usuário normal e Administrador)
 
 ## Tecnologias
 
