@@ -11,10 +11,10 @@ def login():
 
     while True:
 
-        if user_input == "admin" and senha_input=="adminsenha231":
+        if user_input == "admin" and senha_input=="senhacorreta":
             return "admin"
         
-        elif user_input == "luis" and senha_input == "luissenha123":
+        elif user_input == "luis" and senha_input == "senhacorreta":
             return "usuario"
         
         else:
