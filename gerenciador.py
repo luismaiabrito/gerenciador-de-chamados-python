@@ -1,9 +1,14 @@
 #Login
+#Lista de funcionalidades admin: Ver chamados, alterar status, cadastrar user, listar users
+#Lista funcionalidades user; Abrir new chamado, consultar meus chamados
 print("Bem vindo ao Gerencia&Chama, entre com seu usuário e senha já cadastrados! ")
+
+chamados=[]
+
 def login():
     user_input= input("Usuário: ")
    
-    while user_input not in ["admin", "luis"]:
+    while user_input not in ["mestre", "luis"]:
         print("Usuário não cadastrado")
         user_input = input("Usuário: ")
 
@@ -11,7 +16,7 @@ def login():
 
     while True:
 
-        if user_input == "admin" and senha_input=="senhacorreta":
+        if user_input == "mestre" and senha_input=="eusouomestredosmagos":
             return "admin"
         
         elif user_input == "luis" and senha_input == "senhacorreta":
@@ -20,7 +25,6 @@ def login():
         else:
             print("Senha incorreta, tente novamente")
             senha_input = input("Senha: ")
-
 
 def menu_usuario():
     while True:
@@ -37,6 +41,7 @@ def menu_usuario():
 
         if opcao == "1":
             print("Carregando chamado...")
+            abrir_cham()
 
         elif opcao == "2":
             print("Carregando meus chamados...")
@@ -61,7 +66,13 @@ def menu_adm():
             opcao = input("Insira o número da sua opção: ")
         
         if opcao == "1":
-            print("Entrando em Chamdos...")
+            for chamado in chamados:
+                print(chamado["id"])
+                print(chamado["titulo"])
+                print(chamado["descricao"])
+                print(chamado["prioridade"])
+                print(chamado["status"])
+
         
         elif opcao == "2":
             print("Carregando status de chamdos...")
@@ -76,6 +87,22 @@ def menu_adm():
             print("Saindo...")
             break
 
+def abrir_cham():
+
+    titulo_chamado = input("Título: ")
+    descricao_chamado = input("Descreva: ")
+    prioridade_chamado = input("Prioridade (Urgente, necessário): ")
+
+    chamado = {
+        "id": len(chamados) + 1,
+        "titulo": titulo_chamado,
+        "descricao": descricao_chamado,
+        "prioridade": prioridade_chamado,
+        "status": "Aberto"
+
+    }
+    chamados.append(chamado)
+    print("Chamado cadastrado com sucesso!")
 while True:
     tipo_user = login()
 
